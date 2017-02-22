@@ -3,11 +3,11 @@
     active
 @endsection
 @section('content')
-			        <div class="col-md-6 col-md-offset-0">
-			            <div class="panel panel-primary">
-			                <div class="panel-heading">Data Pegawai</div>
-			                <div class="panel-body">
-			                	<table border="2" class="table table-success table-border table-hover">
+			        <div class="col-md-9">
+<div class="panel panel-warning">
+<div align="center">
+<h1>DATA PEGAWAI</h1></div>
+	<table border="1" class="table table-success table-border table-hover">
 									<thead >
 										<tr>
 											<th>No</th>
@@ -44,11 +44,12 @@
 			                </div>
 			            </div>
 			        </div>
-			        <div class="col-md-6 ">
-			            <div class="panel panel-primary">
-			                <div class="panel-heading">Data User</div>
-			                <div class="panel-body">
-			                	<table border="2" class="table table-success table-border table-hover">
+			        
+			        <div class="col-md-9">
+<div class="panel panel-warning">
+<div align="center">
+<h1>DATA USER</h1></div>
+	<table border="1" class="table table-success table-border table-hover">
 									<thead >
 										<tr>
 											<th>Name</th>
@@ -77,10 +78,12 @@
 										@endforeach
 									</tbody>
 								</table>
+								<div align="right">
+								<a  href="{{url('jabatan/create')}}" class="button button3">Tambah
+	</a>
+	</div>
 			                </div>
 			            </div>
-			        </div>
-					<a  href="{{url('pegawai/create')}}" class="btn btn-primary form-control">Tambah</a>
-	
+			        </div>	
 
 @endsection

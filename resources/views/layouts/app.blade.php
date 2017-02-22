@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,10 +37,113 @@
     <link href="css/creative.min.css" rel="stylesheet">
 </head>
 <body>
+<div style="color: white;
+            padding: 15px 50px 5px 50px;
+            float: right;
+            font-size: 16px;"> 
+@if (Auth::guest())
+                            <li role="presentation" class="active"><a href="{{ url('/login') }}">Login</a></li>
+                        @else
+                       
+                                <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="{{ url('/logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        @endif
+                        </div>
+<div style="color: white;
+            padding: 15px 50px 5px 50px;
+            float: right;
+            font-size: 16px;"> 
+<script type="text/javascript">    
+    //fungsi displayTime yang dipanggil di bodyOnLoad dieksekusi tiap 1000ms = 1detik
+    function tampilkanwaktu(){
+        //buat object date berdasarkan waktu saat ini
+        var waktu = new Date();
+        //ambil nilai jam, 
+        //tambahan script + "" supaya variable sh bertipe string sehingga bisa dihitung panjangnya : sh.length
+        var sh = waktu.getHours() + ""; 
+        //ambil nilai menit
+        var sm = waktu.getMinutes() + "";
+        //ambil nilai detik
+        var ss = waktu.getSeconds() + "";
+        //tampilkan jam:menit:detik dengan menambahkan angka 0 jika angkanya cuma satu digit (0-9)
+        document.getElementById("clock").innerHTML = (sh.length==1?"0"+sh:sh) + ":" + (sm.length==1?"0"+sm:sm) + ":" + (ss.length==1?"0"+ss:ss);
+    }
+</script>
+<body onload="tampilkanwaktu();setInterval('tampilkanwaktu()', 1000);">                             
+<span id="clock"></span> 
+<?php
+$hari = date('l');
+/*$new = date('l, F d, Y', strtotime($Today));*/
+if ($hari=="Sunday") {
+    echo "Minggu";
+}elseif ($hari=="Monday") {
+    echo "Senin";
+}elseif ($hari=="Tuesday") {
+    echo "Selasa";
+}elseif ($hari=="Wednesday") {
+    echo "Rabu";
+}elseif ($hari=="Thursday") {
+    echo("Kamis");
+}elseif ($hari=="Friday") {
+    echo "Jum'at";
+}elseif ($hari=="Saturday") {
+    echo "Sabtu";
+}
+?>,
+<?php
+$tgl =date('d');
+echo $tgl;
+$bulan =date('F');
+if ($bulan=="January") {
+    echo " Januari ";
+}elseif ($bulan=="February") {
+    echo " Februari ";
+}elseif ($bulan=="March") {
+    echo " Maret ";
+}elseif ($bulan=="April") {
+    echo " April ";
+}elseif ($bulan=="May") {
+    echo " Mei ";
+}elseif ($bulan=="June") {
+    echo " Juni ";
+}elseif ($bulan=="July") {
+    echo " Juli ";
+}elseif ($bulan=="August") {
+    echo " Agustus ";
+}elseif ($bulan=="September") {
+    echo " September ";
+}elseif ($bulan=="October") {
+    echo " Oktober ";
+}elseif ($bulan=="November") {
+    echo " November ";
+}elseif ($bulan=="December") {
+    echo " Desember ";
+}
+$tahun=date('Y');
+echo $tahun;
+?>
+                    </div>
+
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
-                <div class="navbar-header">
+                <div class="navbar-brand">
 
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -61,50 +165,33 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav nav-tabs">
-                      
                         <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li role="presentation" class="active"><a href="{{ url('/login') }}">Login</a></li>
-                        @else
-                       <li role="presentation" class="@yield('/')" ><a href="{{ url('/') }}">Home</a></li>
-                        <li role="presentation" class="@yield('golongan')" ><a href="{{ url('/golongan') }}">Golongan</a></li>
-                        <li role="presentation" class="@yield('jabatan')"><a href="{{ url('/jabatan') }}">Jabatan</a></li>
-                        <li role="presentation" class="@yield('pegawai')"><a href="{{ url('/pegawai') }}">Pegawai</a></li>
-                        <li role="presentation" class="@yield('kategori')"><a href="{{ url('/kategori') }}">Kategori Lembur</a></li>
-                        <li role="presentation" class="@yield('lemburp')"><a href="{{ url('/lemburp') }}">Lembur Pegawai</a></li>
-                        <li role="presentation" class="@yield('tunjangan')"><a href="{{ url('/tunjangan') }}">Kategori Tunjangan</a></li>
-                        <li role="presentation" class="@yield('tunjanganp')"><a href="{{ url('/tunjanganp') }}">Tunjangan Pegawai</a></li>
-                        <li role="presentation" class="@yield('penggajian')"><a href="{{ url('/penggajian') }}">Penggajian</a></li>
-                                <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ url('/logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endif
+                        
                     </ul>
                 </div>
             </div>
         </nav>
+<br>
+<div class="col-md-3">
+<div class="panel panel-warning">
+    <a  href="{{url('/')}}" class="button button3">Home
+    <a  href="{{url('golongan')}}" class="button button3">Golongan
+    <a  href="{{url('jabatan')}}" class="button button3">Jabatan
+    <a  href="{{url('pegawai')}}" class="button button3">Pegawai
+    <a  href="{{url('kategori')}}" class="button button3">Kategori Lembur
+    <a  href="{{url('lemburp')}}" class="button button3">Lembur Pegawai
+    <a  href="{{url('tunjangan')}}" class="button button3">Kategori Tunjangan
+    <a  href="{{url('tunjanganp')}}" class="button button3">Tunjangan Pegawai
+    <a  href="{{url('penggajian')}}" class="button button3">Penggajian
+    </a>
+    <table border="1" class="table table-success table-border table-hover">
+    </table>
+</div>
+</div>
 
         <div class="container">
             <div class="row">
                 <div class="col-md-15 col-md-offset-0">
-                    <div class="panel panel-primary">
                         <div class="panel-body">
                             @yield('content')
                         </div>

@@ -115,7 +115,7 @@
 												@endforeach
 												<td>{{$data->golongan->besar_uang+$data->jabatan->besar_uang}}</td>
 												@php $c=$data->golongan->besar_uang+$data->jabatan->besar_uang; @endphp
-
+												
 												<td>{{$a + $b + $c}}</td>
 												<td>
 													

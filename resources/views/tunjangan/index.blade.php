@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('content')
-<h1>Daftar Kategori Tunjangan</h1>
-	<table border="1" class="table table-striped table-border table-hover">
+<div class="col-md-9">
+<div class="panel panel-warning">
+<div align="center">
+<h1>DAFTAR KATEGORI TUNJANGAN</h1></div>
+	<table border="1" class="table table-success table-border table-hover">
 		<thead>
 			<tr>
 				<th>No</th>
@@ -37,6 +40,6 @@
 			@endforeach
 		</tbody>
 	</table>
-	<a  href="{{url('tunjangan/create')}}" class="btn btn-primary form-control">Tambah</a>
-
+<a  href="{{url('tunjangan/create')}}" class="button button3">Tambah</button>
+ </a>
 @endsection

@@ -3,7 +3,10 @@
     active
 @endsection
 @section('content')
-<h1>Daftar Jabatan</h1>
+<div class="col-md-9">
+<div class="panel panel-warning">
+<div align="center">
+<h1>DAFTAR JABATAN</h1>
 	<table border="1" class="table table-striped table-border table-hover">
 		<thead>
 			<tr>
@@ -34,6 +37,8 @@
 			@endforeach
 		</tbody>
 	</table>
-	<a  href="{{url('jabatan/create')}}" class="btn btn-primary form-control">Tambah</a>
-
+	<a  href="{{url('jabatan/create')}}" class="button button3">Tambah
+	</a>
+	</div>
+</div>
 @endsection
