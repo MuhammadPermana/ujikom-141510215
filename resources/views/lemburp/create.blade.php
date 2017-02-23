@@ -3,12 +3,11 @@
     active
 @endsection
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Tambah Kategori Lembur</div>
-                <div class="panel-body">
+<div class="col-md-9">
+<div class="panel panel-warning">
+<div align="center">
+<h1>Tambah Lembur Pegawai</h1></div>
+    <table border="1" class="table table-success table-border table-hover">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/lemburp') }}">
                         {{ csrf_field() }}
 
@@ -50,7 +49,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary form-control">
+                                <button type="submit" class="btn btn-primary button button3">
                                     Simpan
                                 </button>
                             </div>

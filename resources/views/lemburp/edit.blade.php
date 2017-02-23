@@ -3,14 +3,12 @@
     active
 @endsection
 @section('content')
-<h1>Edit Kategori Lembur</h1>
-	<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Edit Lembur</div>
-                <div class="panel-body">
-					{!! Form::model($lemburp,['method'=>'PATCH','route'=>['lemburp.update',$lemburp->id]])!!}
+<div class="col-md-9">
+<div class="panel panel-warning">
+<div align="center">
+<h1>Edit Lembur Pegawai</h1></div>
+    <table border="1" class="table table-success table-border table-hover">
+                    {!! Form::model($lembur,['method'=>'PATCH','route'=>['lemburp.update',$lembur->id]])!!}
 						{!! Form::hidden('id',null,['class'=>'form-control']) !!}
                         <div class="form-group{{ $errors->has('kode_l') ? ' has-error' : '' }}">
                             <label for="kode_l" class="col-md-4 control-label">Kode Lembur Pegawai</label>
@@ -25,50 +23,51 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('golongan_id') ? ' has-error' : '' }}">
-                            <label for="golongan_id" class="col-md-4 control-label">Nama Golongan</label>
+                         <div class="form-group{{ $errors->has('pegawai_id') ? ' has-error' : '' }}">
+                            <label for="pegawai_id" class="col-md-4 control-label">pegawai_id</label>
 
                             <div class="col-md-6">
-                                <select name="golongan_id" class="form-control">
+                                <select name="pegawai_id" class="form-control">
                                     <option value="">pilih</option>
-                                    @foreach($golongan as $data)
-                                    <option value="{{$data->id}}">{{$data->nama_g}}</option>
+                                    @foreach($pegawai as $data)
+                                    <option value="{{$data->id}}">{{$data->nip}}</option>
                                     @endforeach
                                 </select>
 
-                                @if ($errors->has('golongan_id'))
+                                @if ($errors->has('pegawai_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('golongan_id') }}</strong>
+                                        <strong>{{ $errors->first('pegawai_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('jabatan_id') ? ' has-error' : '' }}">
-                            <label for="jabatan_id" class="col-md-4 control-label">Nama Jabatan</label>
+                       
+                        <div class="form-group{{ $errors->has('Jumlah_jam') ? ' has-error' : '' }}">
+                            <label for="Jumlah_jam" class="col-md-4 control-label">Jumlah_jam </label>
 
                             <div class="col-md-6">
-                                <select name="jabatan_id" class="form-control">
-                                    <option value="">pilih</option>
-                                    @foreach($jabatan as $data)
-                                    <option value="{{$data->id}}">{{$data->nama_j}}</option>
-                                    @endforeach
-                                </select>
+                                <input id="Jumlah_jam" type="text" class="form-control" name="Jumlah_jam" value="{{ old('Jumlah_jam') }}"  autofocus>
 
-                                @if ($errors->has('jabatan_id'))
+                                @if ($errors->has('Jumlah_jam'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('jabatan_id') }}</strong>
+                                        <strong>{{ $errors->first('Jumlah_jam') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group">
-						{!! Form::submit('Save',['class'=>'btn btn-primary form-control']) !!}
-					</div>
-				{!! Form::close() !!}
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary button button3">
+                                    Simpan
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </div>

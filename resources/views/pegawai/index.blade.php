@@ -3,7 +3,7 @@
     active
 @endsection
 @section('content')
-			        <div class="col-md-9">
+<div class="col-md-9">
 <div class="panel panel-warning">
 <div align="center">
 <h1>DATA PEGAWAI</h1></div>
@@ -45,7 +45,7 @@
 			            </div>
 			        </div>
 			        
-			        <div class="col-md-9">
+<div class="col-md-9">
 <div class="panel panel-warning">
 <div align="center">
 <h1>DATA USER</h1></div>
@@ -79,7 +79,7 @@
 									</tbody>
 								</table>
 								<div align="right">
-								<a  href="{{url('jabatan/create')}}" class="button button3">Tambah
+								<a  href="{{url('pegawai/create')}}" class="button button3">Tambah
 	</a>
 	</div>
 			                </div>

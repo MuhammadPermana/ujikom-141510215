@@ -33,9 +33,10 @@
     <link href="css/creative.min.css" rel="stylesheet">
 </head>
 <body>
+<br>
 <div style="color: white;
             padding: 15px 50px 5px 50px;
-            float: right;
+            float: left;
             font-size: 16px;"> 
 <script type="text/javascript">    
     //fungsi displayTime yang dipanggil di bodyOnLoad dieksekusi tiap 1000ms = 1detik
@@ -107,47 +108,18 @@ $tahun=date('Y');
 echo $tahun;
 ?>
                     </div>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
-
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav nav-tabs">
-                      
-                        <!-- Authentication Links -->
-                        @if (Auth::guest())
-                            <li role="presentation" class="active"><a href="{{ url('/login') }}">Login</a></li>
+                                           <!-- Authentication Links -->
+                       <ul class="nav navbar-right top-nav">
+                <div style="color: white;
+            padding: 15px 50px 5px 50px;
+            float: left;
+            font-size: 16px;"> 
+                @if (Auth::guest())
+                            
+                            
                         @else
-                        <li role="presentation" class="@yield('golongan')" ><a href="{{ url('/golongan') }}">Golongan</a></li>
-                        <li role="presentation" class="@yield('jabatan')"><a href="{{ url('/jabatan') }}">Jabatan</a></li>
-                        <li role="presentation" class="@yield('pegawai')"><a href="{{ url('/pegawai') }}">Pegawai</a></li>
-                        <li role="presentation" class="@yield('kategori')"><a href="{{ url('/kategori') }}">Kategori Lembur</a></li>
-                        <li role="presentation" class="@yield('lemburp')"><a href="{{ url('/lemburp') }}">Lembur Pegawai</a></li>
-                        <li role="presentation" class="@yield('tunjangan')"><a href="{{ url('/tunjangan') }}">Kategori Tunjangan</a></li>
-                        <li role="presentation" class="@yield('tunjanganp')"><a href="{{ url('/tunjanganp') }}">Tunjangan Pegawai</a></li>
-                        <li role="presentation" class="@yield('penggajian')"><a href="{{ url('/penggajian') }}">Penggajian</a></li>
-                                <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Hai,
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -156,8 +128,8 @@ echo $tahun;
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
+                                            Logout <i class="fa fa-fw fa-power-off">
+                                        </a></i>
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
@@ -165,11 +137,9 @@ echo $tahun;
                                     </li>
                                 </ul>
                             </li>
-                        @endif
-                    </ul>
-                </div>
-            </div>
-        </nav>
+                        
+            </ul>
+            @endif
 
         <div class="container">
             <div class="row">

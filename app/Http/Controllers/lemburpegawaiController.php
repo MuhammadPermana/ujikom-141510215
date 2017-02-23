@@ -8,6 +8,8 @@ use Input;
 use App\Lembur_pegawai;
 use App\Pegawai;
 use App\Kategori_lembur;
+use App\Golongan;
+use App\Jabatan;
 
 class lemburpegawaiController extends Controller
 {
@@ -113,8 +115,10 @@ class lemburpegawaiController extends Controller
     {
         $pegawai=Pegawai::all();
         $kategori=Kategori_lembur::all();
+        $golongan=Golongan::all();
+        $jabatan=Jabatan::all();
         $lembur=Lembur_pegawai::find($id);
-        return view('lemburp.edit',compact('lembur','pegawai','kategori'));
+        return view('lemburp.edit',compact('lembur','pegawai','kategori','golongan','jabatan'));
     }
 
     /**

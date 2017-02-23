@@ -5,10 +5,11 @@
 @endsection
 @section('content')
 
-<div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Pencarian Gaji Menurut Karyawan</div>
-                <div class="panel-body">
+<div class="col-md-9">
+<div class="panel panel-warning">
+<div align="center">
+<h1>Pencarian Dalam Bentuk Karyawan</h1></div>
+	<table border="1" class="table table-success table-border table-hover">
                     <form class="form-horizontal" role="form" action="{{ url('query') }}" method="GET"">
                         {{ csrf_field() }}
 
@@ -69,13 +70,11 @@
 
 @endsection
 @section('content1')
-				<div class="col-md-15 col-md-offset-0">
-                    <div class="panel panel-primary">
-                        <div class="panel-body">
-        <div class="col-md-15 col-md-offset-0">
-            <div class="panel panel-primary">
-			    <div class="panel-heading">Data Penggajian</div>
-	                <div class="panel-body">
+				<div class="col-md-9">
+<div class="panel panel-warning">
+<div align="center">
+<h1>Data Penggajian</h1></div>
+	<table border="1" class="table table-success table-border table-hover">
 				        
 				        <table border="2" class="table table-success table-border table-hover">
 										<thead >

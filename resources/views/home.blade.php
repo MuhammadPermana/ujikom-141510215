@@ -1,28 +1,21 @@
-@extends('layouts.app')
+@extends('layouts.app-login')
 
 @section('content')
 
 
-      <s>
   
 <br>
 <br>
+<center><a href="golongan" ><h2><u>BERANDA</u></h2></a></center>
 
-<center><video width="600" weight="900" controls>
-  <source src="{{url('video/hospital santosa.mp4')}}" type="video/mp4">
-  Your browser does not support HTML5 video.
-</video>   
-                    </s>
-
+<center><img src="{{url('image/Sang_Saka_Merah_Putih_by_pamanjee.jpg')}}" width="1000px" height="500px" alt="nama" />
+</img>
+<center><h1><b>Haiii....{{ Auth::user()->name }} Ternyata Kamu Sudah Login Juga</s></b></h1></center>
 <p>
-Video courtesy of 
-<a href="https://www.bigbuckbunny.org/" target="_blank">Web Application</a>.
 </p>
 </center>
-<div class="col-md-9 col">
-                <div class="panel-heading">
                 <div class="panel-primary">
-                    <center><h1><b>SELAMAT DATANG DI APLIKASI PENGGAJIAN SMK ASSALAAM BANDUNG</b></h1></center>
+                    <center><h1><b>SELAMAT DATANG DI APLIKASI PENGGAJIAN <br><s>SMK ASSALAAM BANDUNG</s></b></h1></center>
                     </div>
                 </div>
             </div>

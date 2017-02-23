@@ -3,12 +3,11 @@
     active
 @endsection
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Tambah User</div>
-                <div class="panel-body">
+<div class="col-md-9">
+<div class="panel panel-warning">
+<div align="center">
+<h1>Tambah User Pegawai</h1>
+    <table border="1" class="table table-success table-border table-hover">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/pegawai') }}" enctype='multipart/Form-data'>
                         {{ csrf_field() }}
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -83,12 +82,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="panel-title">Tambah Pegawai</div>
-                </div>
-                <div class="panel-body">
+        <div class="col-md-9">
+<div class="panel panel-warning">
+<div align="center">
+<h1>Tambah Pegawai</h1>
+    <table border="1" class="table table-success table-border table-hover">
                     <div class="form-group{{ $errors->has('nip') ? ' has-error' : '' }}">
                             <label for="nip" class="col-md-4 control-label">NIP</label>
 
@@ -164,6 +162,11 @@
                                     Simpan
                                 </button>
                             </div>
+                  </div>
+                  </table>
+                  </div>
+                  </div>
+                  
                         </div>
                     </form>
                 </div>

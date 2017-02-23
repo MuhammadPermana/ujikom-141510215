@@ -17,16 +17,14 @@
 				<th>Besar Uang</th>
 				<th colspan="2"><center>Action</center></th>
 			</tr>
-		</thead>
 		@php $no=1; @endphp
-		<tbody>
 			@foreach($kategori as $data)
 			<tr>
 				<td>{{$no++}}</td>
 				<td>{{$data->kode_l}}</td>
 				<td>{{$data->golongan->nama_g}}</td>
 				<td>{{$data->jabatan->nama_j}}</td>
-				<td>{{$data->besar_uang}}</td>
+				<td>Rp.{{$data->besar_uang}}</td>
 				<td>
 					<a href="{{route('kategori.edit',$data->id)}}" class='btn btn-warning'> Edit </a>
 				</td>
@@ -38,6 +36,8 @@
 			</tr>
 			@endforeach
 		</tbody>
+				</thead>
+
 	</table>
 <a  href="{{url('kategori/create')}}" class="button button3">Tambah</button>
  </a>

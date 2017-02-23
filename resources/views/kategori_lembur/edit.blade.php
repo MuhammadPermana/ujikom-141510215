@@ -3,13 +3,11 @@
     active
 @endsection
 @section('content')
-<h1>Edit Kategori Lembur</h1>
-	<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Edit Kategori Lembur</div>
-                <div class="panel-body">
+<div class="col-md-9">
+<div class="panel panel-warning">
+<div align="center">
+<h1>Edit Kategori Lembur</h1></div>
+    <table border="1" class="table table-success table-border table-hover">
 					{!! Form::model($kategori,['method'=>'PATCH','route'=>['kategori.update',$kategori->id]])!!}
 						{!! Form::hidden('id',null,['class'=>'form-control']) !!}
                         <div class="form-group{{ $errors->has('kode_l') ? ' has-error' : '' }}">
@@ -64,7 +62,7 @@
                         </div>
 
                         <div class="form-group">
-						{!! Form::submit('Save',['class'=>'btn btn-primary form-control']) !!}
+						{!! Form::submit('Save',['class'=>'btn btn-primary button button3']) !!}
 					</div>
 				{!! Form::close() !!}
                 </div>

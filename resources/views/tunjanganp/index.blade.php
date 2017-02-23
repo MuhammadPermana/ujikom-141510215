@@ -21,6 +21,8 @@
 				<td>{{$no++}}</td>
 				<td>{{$data->kode_tunjangan_id}}</td>
 				<td>{{$data->pegawai->user->name}}</td>
+				<td>{{$data->besaran_uang}}</td>
+
 				<td>
 					<a href="{{route('tunjanganp.edit',$data->id)}}" class='btn btn-warning'> Edit </a>
 				</td>

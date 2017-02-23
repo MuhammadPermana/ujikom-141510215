@@ -25,7 +25,7 @@
 				<td>{{$no++}}</td>
 				<td>{{$data->kode_g}}</td>
 				<td>{{$data->nama_g}}</td>
-				<td>{{$data->besar_uang}}</td>
+				<td>Rp.{{$data->besar_uang}}</td>
 				<td>
 					<a href="{{route('golongan.edit',$data->id)}}" class='btn btn-warning'> Edit </a>
 				</td>

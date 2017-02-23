@@ -13,7 +13,7 @@ return [
     */
 
     'name' => 'APeKa',
-    'name2' => 'Login-APeKa',
+    'name2' => 'Home',
 
 
     /*

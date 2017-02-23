@@ -1,14 +1,38 @@
 @extends('layouts.app-login')
 @section('content')
 
-<h2>APeKa-Spectacular</h2>
-<img src="{{url('/image/internet.jpg')}}" class="img-circle" style="width:400px;height:400px;">
-<div class="container">
-    <div class="row">
-        <div class="md-8 col-md-offset-6">
+<div class="col-md-6">
+<h1>PENGGAJIAN KARYAWAN <br>
+SMK Assalaam Bandung</h1>
+</div>
+<div align="right"><img src="{{url('/image/internet.jpg')}}" class="img-circle" style="width:500px;height:500px;"></div>
+<div class="col-md-6 ">
         <body bgcolor="yellow">
-
-                <div class="panel-heading"><div align="center">Ayo Login Sebelum Tidak Bisa Login</div></div>
+<div align="center">
+<div class="panel-body">
+<div style="color: white;
+            padding: 15px 50px 5px 50px;
+            float: right;
+            font-size: 20px;"> 
+<script type="text/javascript">    
+    //fungsi displayTime yang dipanggil di bodyOnLoad dieksekusi tiap 1000ms = 1detik
+    function tampilkanwaktu(){
+        //buat object date berdasarkan waktu saat ini
+        var waktu = new Date();
+        //ambil nilai jam, 
+        //tambahan script + "" supaya variable sh bertipe string sehingga bisa dihitung panjangnya : sh.length
+        var sh = waktu.getHours() + ""; 
+        //ambil nilai menit
+        var sm = waktu.getMinutes() + "";
+        //ambil nilai detik
+        var ss = waktu.getSeconds() + "";
+        //tampilkan jam:menit:detik dengan menambahkan angka 0 jika angkanya cuma satu digit (0-9)
+        document.getElementById("clock").innerHTML = (sh.length==1?"0"+sh:sh) + ":" + (sm.length==1?"0"+sm:sm) + ":" + (ss.length==1?"0"+ss:ss);
+    }
+</script>
+<body onload="tampilkanwaktu();setInterval('tampilkanwaktu()', 1000);">                             
+<span id="clock"></span> 
+                <div class="panel-heading"><div align="center"><span class="glyphicon glyphicon-user"> Ayo Login Sebelum Tidak Bisa Login</div></div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
@@ -58,12 +82,13 @@
                                 </button>
 
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                                    Forgot Your Password?
+                                    <span class="glyphicon glyphicon-pencil">Forgot Your Password?
                                 </a>
+                            </div>
                             </div>
                         </div>
                     </form>
-                </div>
+                    </div>
             </div>
         </div>
         </div>

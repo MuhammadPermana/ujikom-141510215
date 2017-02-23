@@ -3,13 +3,11 @@
     active
 @endsection
 @section('content')
-<h1>Edit Golongan</h1>
-	<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Edit golongan</div>
-                <div class="panel-body">
+<div class="col-md-9">
+<div class="panel panel-warning">
+<div align="center">
+<h1>Edit Golongan</h1></div>
+    <table border="1" class="table table-success table-border table-hover">
 					{!! Form::model($golongan,['method'=>'PATCH','route'=>['golongan.update',$golongan->id]])!!}
 						{!! Form::hidden('id',null,['class'=>'form-control']) !!}
                         <div class="form-group{{ $errors->has('kode_g') ? ' has-error' : '' }}">
@@ -54,7 +52,7 @@
                         </div>
 
                         <div class="form-group">
-						{!! Form::submit('Save',['class'=>'btn btn-primary form-control']) !!}
+						{!! Form::submit('Save',['class'=>'btn btn-primary button button3']) !!}
 					</div>
 				{!! Form::close() !!}
                 </div>
