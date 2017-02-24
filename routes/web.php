@@ -10,7 +10,9 @@
 | to using a Closure or controller method. Build something great!
 |
 */
-
+Route::get('/error', function () {
+    return view('stop');
+});
 Auth::routes();
 Route::get('/', 'HomeController@index');
 Route::get('about', 'HomeController@about');
@@ -26,3 +28,5 @@ Route::resource('/tunjanganp', 'tunjanganpController');
 Route::resource('/penggajian', 'PenggajianController');
 Route::get('query', 'PenggajianController@search');
 Route::get('admin', 'AdminController@index');
+Route::resource('/user','userController');
+

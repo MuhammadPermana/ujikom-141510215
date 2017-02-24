@@ -10,29 +10,30 @@
 	<table border="1" class="table table-success table-border table-hover">
 		<thead>
 			<tr>
-				<th>Lembur Ke-</th>
-				<th>Nama Pegawai</th>
-				<th>Kode Kategori Lembur</th>
-				<th>Jumlah Jam</th>
-				<th colspan="2"><center>Action</center></th>
+				<th><center>Lembur Ke-</center></th>
+				<th><center>Nama Pegawai</center></th>
+				<th><center>Kode Kategori Lembur</center></th>
+				<th><center>Jumlah Jam</center></th>
+				<th colspan="2"><center>Action</center></center></th>
 			</tr>
 		</thead>
 		@php $no=1; @endphp
 		<tbody>
 			@foreach($lembur as $data)
 			<tr>
-				<td>{{$no++}}</td>
-				<td>{{$data->pegawai->user->name}}</td>
-				<td>{{$data->kategori->kode_l}}</td>
-				<td>{{$data->Jumlah_jam}}</td>
+				<td><center>{{$no++}}</center></td>
+				<td><center>{{$data->pegawai->user->name}}</center></td>
+				<td><center>{{$data->kategori->kode_l}}</center></td>
+				<td><center>{{$data->Jumlah_jam}}</center></td>
 				<td>
-					<a href="{{route('lemburp.edit',$data->id)}}" class='btn btn-warning'> Edit </a>
-				</td>
+				<center>
+					<a href="{{route('lemburp.edit',$data->id)}}" class='btn btn-warning'><span class="glyphicon glyphicon-pencil"></span></a>
+				</center></td>
 				<td>
+				<center>
 					{!! Form::open(['method'=>'DELETE','route'=>['lemburp.destroy',$data->id]]) !!}
-					{!! Form::submit('Delete',['class'=>'btn btn-danger']) !!}
-					{!! Form::close() !!}
-				</td>
+<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>					{!! Form::close() !!}
+				</center></td>
 			</tr>
 			@endforeach
 		</tbody>

@@ -2,46 +2,26 @@
 
 namespace App\Http\Controllers;
 
-use Request;
-use Validator;
-use Input;
-use App\Penggajian;
-use App\Tunjangan_pegawai;
-use App\Pegawai;
-use App\Lembur_pegawai;
+use Illuminate\Http\Request;
 
-class PenggajianController extends Controller
+class userController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-    public function __construct()
+     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('admin');
         
     }
-
+    
     public function index()
     {
-        $penggajian=Penggajian::all();
-        $pegawai=Pegawai::all();
-        $lemburp=Lembur_pegawai::all();
-        $tunjangan=Tunjangan_pegawai::all();
-        return view('penggajian.index',compact('penggajian','pegawai','lemburp','tunjangan'));
-    }
-
-     public function search(Request $request)
-    {
-        $query = Request::get('q');
-        $pegawai = Pegawai::where('id', 'LIKE', '%' . $query . '%')->paginate(10);
-        $pegawaii = Pegawai::all();
-        $penggajian=Penggajian::all();
-         $lemburp=Lembur_pegawai::all();
-        $tunjangan=Tunjangan_pegawai::all();
-        return view('penggajian.result', compact('penggajian','pegawai','pegawaii','lemburp','tunjangan', 'query'));
+        $user=User::all();
+        
+        return view('user.index',compact('user'));
     }
 
     /**
@@ -51,7 +31,7 @@ class PenggajianController extends Controller
      */
     public function create()
     {
-        return view('penggajian.create');
+        //
     }
 
     /**
@@ -62,10 +42,9 @@ class PenggajianController extends Controller
      */
     public function store(Request $request)
     {
-        $penggajian=Request::all();
-        Penggajian::create($penggajian);
-        return redirect('penggajian');
+        //
     }
+
     /**
      * Display the specified resource.
      *
@@ -108,6 +87,6 @@ class PenggajianController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
+        User::find($id)->delete();
+        return redirect('user');    }
 }

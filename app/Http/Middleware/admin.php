@@ -15,9 +15,9 @@ class admin
      */
     public function handle($request, Closure $next)
     {
-        if(auth()->check() && $request->user()->type_user == 'Admin'){
+        if(auth()->check() && $request->user()->type_user == 'admin'){
         return $next ($request);
       }
-      return redirect('/');
+        return redirect()->guest('/error');
     }
 }

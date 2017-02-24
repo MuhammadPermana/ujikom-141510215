@@ -10,33 +10,35 @@
 	<table border="1" class="table table-success table-border table-hover">
 									<thead >
 										<tr>
-											<th>No</th>
-											<th>NIP</th>
-											<th>Nama Golongan</th>
-											<th>Nama Jabatan</th>
-											<th>Photo</th>
+
+											<th><center>No</center></th>
+											<th><center>NIP</center></th>
+											<th><center>Nama Golongan</center></th>
+											<th><center>Nama Jabatan</center></th>
+											<th colspan="2"><center>Action</center></th>					
 										</tr>
 									</thead>
 									@php $no=1; @endphp
 									<tbody>
 										@foreach($pegawai as $data)
 										<tr>
-											<td>{{$no++}}</td>
-											<td>{{$data->nip}}</td>
-											<td>{{$data->golongan->nama_g}}</td>
-											<td>{{$data->jabatan->nama_j}}</td>
-											<td>
-												
-											<div class="dropdown">
-							                    <a href="#" class="dropdown-toggle btn btn-primary" data-toggle="dropdown" role="button" aria-expanded="false">Lihat Photo <span class="caret"></span>
-							                    </a>
-												<ul class="dropdown-menu" role="menu">
-													<img src="assets/image/{{$data->photo}}" width="200" height="200">
-							                    </ul>
-							                </div>
+											<td><center>{{$no++}}</center></td>
+											<td><center>{{$data->nip}}</center></td>
+											<td><center>{{$data->golongan->nama_g}}</center></td>
+											<td><center>{{$data->jabatan->nama_j}}</center></td>
 
+										
+											<td>
+												<center><a href="{{route('pegawai.edit',$data->id)}}" class='btn btn-warning'><span class="glyphicon glyphicon-pencil"></span></a>
+												</center>
 											</td>
-											
+											<td>
+											<center>
+												{!! Form::open(['method'=>'DELETE','route'=>['pegawai.destroy',$data->id]]) !!}
+												<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>
+												{!! Form::close() !!}
+												</center>
+											</td>
 										</tr>
 										@endforeach
 									</tbody>
@@ -52,27 +54,29 @@
 	<table border="1" class="table table-success table-border table-hover">
 									<thead >
 										<tr>
-											<th>Name</th>
-											<th>Type User</th>
-											<th>Email</th>
-											<th colspan="2"><center>Action</center></th>
+											<th><center>Name</center></th>
+											<th><center>Type User</center></th>
+											<th><center>Email</center></th>
+											<th><center>Photo</center></th>
 										</tr>
 									</thead>
 									@php $no=1; @endphp
 									<tbody>
 										@foreach($pegawai as $data)
 										<tr>
-											<td>{{$data->user->name}}</td>
-											<td>{{$data->user->type_user}}</td>
-											<td>{{$data->user->email}}</td>
+											<td><center>{{$data->user->name}}</center>
+											<td><center>{{$data->user->type_user}}</center>
+											<td><center>{{$data->user->email}}</center>
+											<td>
 											
-											<td>
-												<a href="{{route('pegawai.edit',$data->id)}}" class='btn btn-warning'> Edit </a>
-											</td>
-											<td>
-												{!! Form::open(['method'=>'DELETE','route'=>['pegawai.destroy',$data->id]]) !!}
-												{!! Form::submit('Delete',['class'=>'btn btn-danger']) !!}
-												{!! Form::close() !!}
+
+<div class="dropdown">
+  <img src="assets/image/{{$data->photo}}" alt="Trolltunga Norway" width="100" height="50">
+  <div class="dropdown-content">
+    <img src="assets/image/{{$data->photo}}" alt="Trolltunga Norway" width="300" height="200">
+    <div class="desc">Beautiful Trolltunga, Norway</div>
+  </div>
+</div>	
 											</td>
 										</tr>
 										@endforeach

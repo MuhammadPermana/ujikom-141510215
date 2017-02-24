@@ -16,6 +16,13 @@ class tunjanganpController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+        
+    }
+    
     public function index()
     {
         $tunjanganp=Tunjangan_pegawai::all();

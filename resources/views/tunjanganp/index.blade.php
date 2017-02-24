@@ -6,7 +6,7 @@
 <h1>DAFTAR TUNJANGAN PEGAWAI</h1></div>
 	<table border="1" class="table table-success table-border table-hover">
 		<thead>
-			<tr>
+			<tr class="btn-primary">
 				<th>No</th>
 				<th>Kode Kategori Tunjangan</th>
 				<th>Nama Pegawai</th>
@@ -17,11 +17,11 @@
 		@php $no=1; @endphp
 		<tbody>
 			@foreach($tunjanganp as $data)
-			<tr>
+			<tr class="btn-danger">
 				<td>{{$no++}}</td>
 				<td>{{$data->kode_tunjangan_id}}</td>
 				<td>{{$data->pegawai->user->name}}</td>
-				<td>{{$data->besaran_uang}}</td>
+				<td>Rp. {{$data->tunjangan->besar_uang}}</td>
 
 				<td>
 					<a href="{{route('tunjanganp.edit',$data->id)}}" class='btn btn-warning'> Edit </a>

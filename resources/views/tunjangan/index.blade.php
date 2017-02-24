@@ -7,35 +7,37 @@
 	<table border="1" class="table table-success table-border table-hover">
 		<thead>
 			<tr>
-				<th>No</th>
-				<th>Kode Tunjangan</th>
-				<th>Nama Golongan</th>
-				<th>Nama Jabatan</th>
-				<th>Besar Uang</th>
-				<th>Status</th>
-				<th>Jumlah Anak</th>
-				<th colspan="2"><center>Action</center></th>
+				<th><center>No</center></th>
+				<th><center>Kode Tunjangan</center></th>
+				<th><center>Nama Golongan</center></th>
+				<th><center>Nama Jabatan</center></th>
+				<th><center>Besar Uang</center></th>
+				<th><center>Status</center></th>
+				<th><center>Jumlah Anak</center></th>
+				<th colspan="2"><center>Action</center></center></th>
 			</tr>
 		</thead>
 		@php $no=1; @endphp
 		<tbody>
 			@foreach($tunjangan as $data)
 			<tr>
-				<td>{{$no++}}</td>
-				<td>{{$data->kode_t}}</td>
-				<td>{{$data->golongan->nama_g}}</td>
-				<td>{{$data->jabatan->nama_j}}</td>
-				<td>{{$data->besar_uang}}</td>
-				<td>{{$data->status}}</td>
-				<td>{{$data->jumlah_anak}}</td>
+				<td><center>{{$no++}}</center></td>
+				<td><center>{{$data->kode_t}}</center></td>
+				<td><center>{{$data->golongan->nama_g}}</center></td>
+				<td><center>{{$data->jabatan->nama_j}}</center></td>
+				<td><center>Rp. {{$data->besar_uang}}</center></td>
+				<td><center>{{$data->status}}</center></td>
+				<td><center>{{$data->jumlah_anak}}</center></td>
 				<td>
-					<a href="{{route('tunjangan.edit',$data->id)}}" class='btn btn-warning'> Edit </a>
-				</td>
+				<center>
+					<a href="{{route('tunjangan.edit',$data->id)}}" class='btn btn-warning'><span class="glyphicon glyphicon-pencil"></span></a>
+				</center></td>
 				<td>
+				<center>
 					{!! Form::open(['method'=>'DELETE','route'=>['tunjangan.destroy',$data->id]]) !!}
-					{!! Form::submit('Delete',['class'=>'btn btn-danger']) !!}
+<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>					
 					{!! Form::close() !!}
-				</td>
+				</center></td>
 			</tr>
 			@endforeach
 		</tbody>

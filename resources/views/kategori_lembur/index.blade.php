@@ -1,7 +1,4 @@
 @extends('layouts.app')
-@section('kategori')
-    active
-@endsection
 @section('content')
 <div class="col-md-9">
 <div class="panel panel-warning">
@@ -10,28 +7,31 @@
 	<table border="1" class="table table-success table-border table-hover">
 		<thead>
 			<tr>
-				<th>No</th>
-				<th>Kode Kategori Lembur</th>
-				<th>Nama Golongan</th>
-				<th>Nama Jabatan</th>
-				<th>Besar Uang</th>
+				<th><center>No</th>
+				<th><center>Kode Kategori Lembur</th>
+				<th><center>Nama Golongan</th>
+				<th><center>Nama Jabatan</th>
+				<th><center>Besar Uang</th>
 				<th colspan="2"><center>Action</center></th>
 			</tr>
 		@php $no=1; @endphp
 			@foreach($kategori as $data)
 			<tr>
-				<td>{{$no++}}</td>
-				<td>{{$data->kode_l}}</td>
-				<td>{{$data->golongan->nama_g}}</td>
-				<td>{{$data->jabatan->nama_j}}</td>
-				<td>Rp.{{$data->besar_uang}}</td>
+				<td><center>{{$no++}}</center></td>
+				<td><center>{{$data->kode_l}}</center></td>
+				<td><center>{{$data->golongan->nama_g}}</center></td>
+				<td><center>{{$data->jabatan->nama_j}}</center></td>
+				<td><center>Rp. {{$data->besar_uang}}</center></td>
 				<td>
-					<a href="{{route('kategori.edit',$data->id)}}" class='btn btn-warning'> Edit </a>
+				<center>
+					<a href="{{route('kategori.edit',$data->id)}}" class='btn btn-warning'><span class="glyphicon glyphicon-pencil"></span></a>
+				</center>
 				</td>
 				<td>
+				<center>
 					{!! Form::open(['method'=>'DELETE','route'=>['kategori.destroy',$data->id]]) !!}
-					{!! Form::submit('Delete',['class'=>'btn btn-danger']) !!}
-					{!! Form::close() !!}
+<button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button>					{!! Form::close() !!}
+					</center>
 				</td>
 			</tr>
 			@endforeach

@@ -18,6 +18,13 @@ class lemburpegawaiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+        
+    }
+    
     public function index()
     {
 
@@ -39,6 +46,8 @@ class lemburpegawaiController extends Controller
     {
         $pegawai=Pegawai::all();
         $kategori=Kategori_lembur::all();
+        $now = Carbon::now('Asia/Jakarta');
+
         return view('lemburp.create',compact('pegawai','kategori'));
         //
     }

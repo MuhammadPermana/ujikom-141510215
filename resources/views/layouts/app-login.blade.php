@@ -150,8 +150,7 @@ echo $tahun;
                         </div>
                     </div>
                 </div>
-                @yield('content1')
-            </div>
+                </div>
         </div>
     </div>
 

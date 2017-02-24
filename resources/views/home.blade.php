@@ -6,11 +6,11 @@
   
 <br>
 <br>
-<center><a href="golongan" ><h2><u>BERANDA</u></h2></a></center>
+<center><a href="pegawai" ><h2><u>BERANDA</u></h2></a></center>
 
 <center><img src="{{url('image/Sang_Saka_Merah_Putih_by_pamanjee.jpg')}}" width="1000px" height="500px" alt="nama" />
 </img>
-<center><h1><b>Haiii....{{ Auth::user()->name }} Ternyata Kamu Sudah Login Juga</s></b></h1></center>
+<center><h1><b><u>Haiii....{{ Auth::user()->name }}</u></s></b></h1></center>
 <p>
 </p>
 </center>
