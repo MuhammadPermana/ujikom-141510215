@@ -26,7 +26,8 @@ Route::resource('/error2','tunjanganpController@error2');
 Route::resource('/tunjangan', 'tunjanganController');
 Route::resource('/tunjanganp', 'tunjanganpController');
 Route::resource('/penggajian', 'PenggajianController');
-Route::get('query', 'PenggajianController@search');
+//Route::get('query', 'PenggajianController@search');
 Route::get('admin', 'AdminController@index');
 Route::resource('/user','userController');
-
+Route::resource('/gaji', 'gajiController');
+Route::get('bulangaji','gajiController@search');

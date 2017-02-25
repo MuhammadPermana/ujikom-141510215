@@ -19,10 +19,12 @@ class CreatePenggajiansTable extends Migration
             $table->foreign('tunjangan_pegawai_id')->references('id')->on('tunjangan_pegawais')->onDelete('CASCADE');
             $table->Integer('jumlah_jam_lembur');
             $table->Integer('jumlah_uang_lembur');
+            $table->integer('gaji_total');
             $table->Integer('gaji_pokok');
             $table->date('tanggal_pengambilan');
             $table->boolean('status_pengambilan')->default(0);
             $table->string('petugas_penerima');
+            $table->integer('bulan');
             $table->timestamps();
         });
     }

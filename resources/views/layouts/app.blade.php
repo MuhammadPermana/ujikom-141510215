@@ -186,7 +186,7 @@ echo $tahun;
     <a  href="{{url('lemburp')}}" class="button button3">Lembur Pegawai
     <a  href="{{url('tunjangan')}}" class="button button3">Kategori Tunjangan
     <a  href="{{url('tunjanganp')}}" class="button button3">Tunjangan Pegawai
-    <a  href="{{url('penggajian')}}" class="button button3">Penggajian
+    <a  href="{{url('gaji')}}" class="button button3">Penggajian
     </a>
     <table border="1" class="table table-success table-border table-hover">
     </table>

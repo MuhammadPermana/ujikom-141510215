@@ -10,6 +10,8 @@ use App\Pegawai;
 use App\Kategori_lembur;
 use App\Golongan;
 use App\Jabatan;
+use Carbon\Carbon;
+
 
 class lemburpegawaiController extends Controller
 {
@@ -149,7 +151,7 @@ class lemburpegawaiController extends Controller
         }
         else{
             $roles=[
-            'kode_lembur_id'=>'required|unique:lembur_pegawais',
+            'kode_lembur_id'=>'required',
             'pegawai_id'=>'required',
             'Jumlah_jam'=>'required',
         ];

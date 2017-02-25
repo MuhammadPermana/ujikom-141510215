@@ -10,33 +10,32 @@
     <table border="1" class="table table-success table-border table-hover">
                     {!! Form::model($lembur,['method'=>'PATCH','route'=>['lemburp.update',$lembur->id]])!!}
 						{!! Form::hidden('id',null,['class'=>'form-control']) !!}
-                        <div class="form-group{{ $errors->has('kode_l') ? ' has-error' : '' }}">
-                            <label for="kode_l" class="col-md-4 control-label">Kode Lembur Pegawai</label>
+                        <div class="form-group{{ $errors->has('kode_lembur_id') ? ' has-error' : '' }}">
+                            <label for="kode_lembur_id" class="col-md-4 control-label">Kode Lembur Pegawai</label>
 
                             <div class="col-md-6">
-                                {!! Form::text('kode_l',null,['class'=>'form-control']) !!}
-                                @if ($errors->has('kode_l'))
+                                {!! Form::text('kode_lembur_id',null,['class'=>'form-control']) !!}
+                                @if ($errors->has('kode_lembur_id'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('kode_l') }}</strong>
+                                        <strong>{{ $errors->first('kode_lembur_id') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
 
-                         <div class="form-group{{ $errors->has('pegawai_id') ? ' has-error' : '' }}">
-                            <label for="pegawai_id" class="col-md-4 control-label">pegawai_id</label>
+                         <div class="form-group{{ $errors->has('nip') ? ' has-error' : '' }}">
+                            <label for="nip" class="col-md-4 control-label">nip</label>
 
                             <div class="col-md-6">
-                                <select name="pegawai_id" class="form-control">
-                                    <option value="">pilih</option>
+                                <select name="nip" class="form-control">
                                     @foreach($pegawai as $data)
                                     <option value="{{$data->id}}">{{$data->nip}}</option>
                                     @endforeach
                                 </select>
 
-                                @if ($errors->has('pegawai_id'))
+                                @if ($errors->has('nip'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('pegawai_id') }}</strong>
+                                        <strong>{{ $errors->first('nip') }}</strong>
                                     </span>
                                 @endif
                             </div>
